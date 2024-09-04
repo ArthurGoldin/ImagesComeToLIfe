@@ -1,0 +1,122 @@
+﻿    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ICtL 1.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div id="info">
+        <input type="file" id="fileInput" style="visibility:hidden">
+    </div>
+    <div id="info2">
+    </div>
+    <div id="info">
+        <h2 id="title">Images Come to Life</h2>
+        <div id="meta">Loading...</div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Help</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Controls</h3>
+                <p class="big">
+                    Hold Shift-key and click mouse left button to add a p2p handle to the shape.<br>
+                    Hold Alt-key and click mouse left button to remove a p2p handle off the shape.<br>
+                    Use mouse scroll-up/scroll-down to zoom in/out.<br>
+                    Hold mouse right button to move the shape.
+                </p>
+                <h3>Touch based devices</h3>
+                <p class="big">
+                    Double tap to add or remove a p2p handle off the shape.<br>
+                    Use two fingers to zoom in or zoom out.
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <h5>
+                    Author: Arhtur Goldin.<br>
+                    This app is developed as a Final Project assignment for my B.sc at the Faculty of Engineering at Bar-Ilan University.<br />
+                    The app is implemented with <a href="https://geometrycollective.github.io/geometry-processing-js/" title="geometry-processing-js" target="_blank">geometry-processing-js</a>  and <a href="https://rohan-sawhney.github.io/linear-algebra-js/" title="linear-algebra-js" target="_blank">linear-algebra-js</a> libraries provided by <a href="http://rohansawhney.io/" title="Go to Rohan's webpage" target="_blank">Rohan Sawhney</a> and <a href="http://www.cs.cmu.edu/~kmcrane/" title="Go to Keenan's webpage" target="_blank">Keenan Crane</a>.<br />
+                    The main deformation algorithm is based on papers:<br />
+                     -  <a href="http://www.eng.biu.ac.il/~weberof/Publications/GPU-Injective/GPU_Accelerated_Locally_Injective_Shape_Deformation_EXTENDED.pdf" title="Open GPU paper" target="_blank">GPU-Accelerated Locally Injective Shape Deformation</a>.<br />
+                     -  <a href="http://www.eng.biu.ac.il/~weberof/Publications/Fast_HGP/A_Subspace_Method_for_Fast_Locally_Injective_Harmonic_Mapping.pdf" title="Open Subspase-method paper" target="_blank">	A Subspace Method for Fast Locally Injective Harmonic Mapping</a>.<br />
+                     -  <a href="https://people.mpi-inf.mpg.de/~chen/papers/meshnewton.pdf" title="Open Piecewise linear mapping paper" target="_blank">Piecewise linear mapping optimization based on the complex view</a>.</h5>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>-->
+
+    <script src="libs/three.js-dev/build/three.min.js"></script>
+    <script src="libs/dat.gui-master/build/dat.gui.min.js"></script>
+
+    <script src="libs/detector.js"></script>
+    <script src="libs/trackball-controls.js"></script>
+    <script src="libs/DragControls.js"></script>
+    <!--<script src="../../libs/three.js-dev/src/loaders/TextureLoader.js" type="module"></script>-->
+    <!--<script src="../../libs/three.js-dev/src/loaders/ObjectLoader.js" type="module"></script>-->
+    <!--<script src="../../libs/OBJLoader.js"></script>-->
+
+    <script src="libs/three.js-dev/examples/js/loaders/LoaderSupport.js"></script>
+    <script src="libs/three.js-dev/examples/js/loaders/OBJLoader2.js"></script>
+
+    <script src="libs/FileSaver.js"></script>
+    <!--<script src="../../libs/three.js-dev/examples/js/exporters/OBJExporter.js"></script>-->
+
+    <script src="energy_lib/linear-algebra-asm.js"></script>
+    <script src="energy_lib/vector.js"></script>
+    <script src="energy_lib/emscripten-memory-manager.js"></script>
+    <!--<script src="energy_lib/complex-dense-matrix.js"></script>
+    <script src="energy_lib/complex.js"></script>
+    <script src="energy_lib/complex-sparse-matrix.js"></script>
+    <script src="energy_lib/dense-matrix.js"></script>
+    <script src="energy_lib/sparse-matrix.js"></script>-->
+
+    <script src="energy_lib/geometry-js-core/vertex.js"></script>
+    <script src="energy_lib/geometry-js-core/edge.js"></script>
+    <script src="energy_lib/geometry-js-core/face.js"></script>
+    <script src="energy_lib/geometry-js-core/halfedge.js"></script>
+    <script src="energy_lib/geometry-js-core/corner.js"></script>
+    <script src="energy_lib/geometry-js-core/mesh.js"></script>
+    <script src="energy_lib/geometry-js-core/geometry.js"></script>
+
+    <script src="input/racoon.js"></script>
+    <script src="input/small_disk.js"></script>
+    <script src="input/square.js"></script>
+    <script src="input/square_with_hole.js"></script>
+    <script src="input/big_disk.js"></script>
+    <script src="input/bar.js"></script>
+    <script src="input/large_disk.js"></script>
+    <script src="input/smooth_bar.js"></script>
+    <script src="input/bar2.js"></script>
+    <script src="input/deer.js"></script>
+    <script src="input/elephant.js"></script>
+    <script src="input/boy.js"></script>
+    <script src="input/horse.js"></script>
+    <script src="input/monkey.js"></script>
+    <script src="input/gingerbreadman.js"></script>
+    <script src="input/timon.js"></script>
+
+    <!--<script src="../../utils/meshio.js"></script>
+    <script src="../../utils/colormap.js"></script>-->
+    <!--<script src="energy_lib/energySD.js"></script>-->
+    <!--<script src="build-energy.js"></script>-->
+    <!--<script src="solve-harmonic-subspace.js"></script>-->
+    <!--<script src="harmonicOut.js"></script>-->
+    <!--<script src="nw-solver.js"></script>-->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
