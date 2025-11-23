@@ -1,11 +1,13 @@
 # ImagesComeToLIfe
 
-Author: Arhtur Goldin.
+Author: Arthur Goldin
 
-This app is developed as a Final Project assignment for my B.sc at the Faculty of Engineering at Bar-Ilan University.
-The app is implemented with geometry-processing-js and linear-algebra-js libraries provided by Rohan Sawhney and Keenan Crane.
-The main deformation algorithm is based on papers:
+This application was developed as the final project for my Bachelor of Science degree at the Faculty of Engineering, Bar-Ilan University. The implementation utilizes the geometry-processing-js and linear-algebra-js libraries, created by Rohan Sawhney and Keenan Crane.
 
-- GPU-Accelerated Locally Injective Shape Deformation.
-- A Subspace Method for Fast Locally Injective Harmonic Mapping.
-- Piecewise linear mapping optimization based on the complex view.
+The core deformation algorithm is inspired by and based on the following research papers:
+
+GPU-Accelerated Locally Injective Shape Deformation
+
+A Subspace Method for Fast Locally Injective Harmonic Mapping
+
+Piecewise Linear Mapping Optimization Based on the Complex View
